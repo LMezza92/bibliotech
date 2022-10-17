@@ -1,0 +1,41 @@
+.container{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 120px;
+    padding: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    & a {
+        color: #BA4540;
+    }
+    & span {
+        margin-top:5px;
+        
+    }
+}
+
+.follow_us{
+    margin-right: 20px;
+    & i {
+        color: #c93a3a;
+        font-size: 40px;
+        margin: 10px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:900px){
+    .follow_us{
+        & span {
+            display: none;
+        }
+    }   
+}

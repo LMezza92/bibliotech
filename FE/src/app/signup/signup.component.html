@@ -1,0 +1,73 @@
+<!-- <div class="signup">
+    <div></div>
+    <div class="signup_title">
+        <span>Benvenuto, iscriviti!</span>
+    </div>
+    <div class="signup_content">
+        <div class="signup_box">
+            <form [formGroup]="signUpForm">
+
+                <label for="username">Username </label>
+                <input id="username" type="text" formControlName="username">
+              
+                <label for="email">Email </label>
+                <input id="email" type="text" formControlName="email">
+            
+                <label for="password">Password </label>
+                <input id="password" type="password"  formControlName="password">
+            
+                <label for="confirmPassword">Confirm Password </label>
+                <input id="confirmPassword" type="password"  formControlName="confirmPassword">
+                 
+                <label for="standard">Standard</label>
+                <input type="radio" name="type" id="standard" value="standard" formControlName="type">
+                <label for="premium">Premium</label>
+                <input type="radio" name="type" id="premium" value="premium" formControlName="type">
+                <label for="admin">Admin</label>
+                <input type="radio" name="type" id="admin" value="admin" formControlName="type">
+            
+                <input type="submit" value="Submit" (click)="send()">
+                
+            </form>
+        </div>
+    </div>
+    <div></div>
+</div> -->
+<div class="signup-container">
+    <div class="signup">
+        <div></div>
+        <div class="signup_title">
+            <span>Benvenuto, iscriviti!</span>
+        </div>
+        <div class="signup_content">
+            <div class="signup_box">
+                <form [formGroup]="signUpForm">
+
+                    <!-- <label for="username">Username </label> -->
+                    <input id="username" type="text" placeholder="Username" formControlName="username">
+                    <hr style="background-color:white; width:250px">
+                    <!-- <label for="email">Email </label> -->
+                    <input id="email" type="text" placeholder="Email" formControlName="email">
+                    <hr style="background-color:white; width:250px">
+                    <!-- <label for="password">Password </label> -->
+                    <input id="password" type="password" placeholder="Password" formControlName="password">
+                    <hr style="background-color:white; width:250px">
+                    <!-- <label for="confirmPassword">Confirm Password </label> -->
+                    <input id="confirmPassword" type="password"  placeholder="Confirm Password" formControlName="confirmPassword">
+                    <hr style="background-color:white; width:250px">
+
+                    <div class="radio_button">
+                        <label for="standard">Standard</label>
+                        <input type="radio" name="type" id="standard" value="standard" formControlName="type">
+                        <label for="premium">Premium</label>
+                        <input type="radio" name="type" id="premium" value="premium" formControlName="type">
+                    </div>
+                    <input type="submit" class="submit_button" value="Iscriviti" (click)="send()">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="message">
+    <app-notification [message] = "notification"></app-notification>
+</div>

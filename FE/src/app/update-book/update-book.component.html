@@ -1,0 +1,29 @@
+<div class="new-book-container">
+<h2>Aggiorna Libro</h2>
+<form [formGroup]="newBook">
+
+    <label for="title">Title </label>
+    <input id="title" type="text" formControlName="title">
+  
+    <label for="author">Author </label>
+    <input id="author" type="text" formControlName="author">
+
+    <label for="category">Category </label>
+    <input id="category" type="text"  formControlName="category">
+
+    <label for="editor">Editor </label>
+    <input id="editor" type="text"  formControlName="editor">
+
+    <label for="pages">N° Pages </label>
+    <input id="edipagestor" type="text"  formControlName="numPages">
+   
+    <label for="image">Image path </label>
+    <input id="image" type="text"  formControlName="image">
+    
+    <input type="submit" value="Submit" (click)="send()">
+    
+</form>
+</div>
+<div *ngIf="message">
+    <app-notification [message] = "notification"></app-notification>
+</div>

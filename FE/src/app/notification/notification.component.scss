@@ -1,0 +1,23 @@
+.message-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    min-height: 100px;
+    min-width: 300px;
+    border-radius: 15px;
+    border: 3px solid #BA4540;
+    padding: 20px;
+    z-index: 999;
+    position: fixed;
+    left: 50%;
+    bottom: -100px;
+    transform: translate(-50%, 0%);
+    transition: bottom .4s;
+    & i {
+        margin-right: 20px;
+    }
+}
+.visible {
+    bottom: 100px;
+}

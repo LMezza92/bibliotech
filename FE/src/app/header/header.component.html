@@ -1,0 +1,46 @@
+
+<div class="menu_header">
+    <i [ngClass]="[menuIsOpen ? 'fa-times' : 'fa-bars']" class="fa fa-3x  my_menu" aria-hidden="true" (click)="toggleMenu()"></i>
+    <!-- <div class="my_menu">
+    <input type="checkbox" id="menu-icon" (click)="this.menuIsOpen = !this.menuIsOpen;">
+        <label  class="menu" for="menu-icon" >
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </label>
+    </div> -->
+    <h1>BIBLIOTECH</h1>
+    <nav [ngClass]="{'mobile-menu' : menuIsOpen, 'premium':isPremium, 'logged':isLogged}">
+        <!-- <div>
+            <input type="text" placeholder="Search...">
+        </div> -->
+        
+        <ul>
+            <li><a routerLink="/" (click)="this.menuIsOpen = false">Home</a><i class="fa fa-globe" aria-hidden="true"></i></li>
+            <li><a routerLink="/catalog" (click)="this.menuIsOpen = false">Catalogo</a><i class="fa fa-database" aria-hidden="true"></i></li>
+            <div *ngIf="isAdmin">
+                <li><a routerLink="/new-book" (click)="this.menuIsOpen = false">Nuovo Libro</a><i class="fa fa-book" aria-hidden="true"></i></li>
+            </div>
+            <div *ngIf="isLogged" >
+                <li><a routerLink="/user-profile" (click)="this.menuIsOpen = false">Profilo</a><i class="fa fa-user-circle" aria-hidden="true"></i></li>
+            </div>
+            <!-- <li><a routerLink="/random">Page Not Found</a></li> -->
+            <div *ngIf="!isLogged">
+                <li><a routerLink="/login" ><button mat-raised-button (click)="this.menuIsOpen = false">Login<i class="fa fa-sign-in" aria-hidden="true"></i></button></a></li>
+            </div>
+            <div *ngIf="isLogged">
+                <li><button mat-raised-button (click)="logOut()" (click)="this.menuIsOpen = false">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></button></li>
+            </div>
+        </ul>
+        <!-- <div class="infomenu">
+            <p><a href="mailto:info@biothech.com">Support: info@biothech.com</a></p>
+            <p>Follow us on social networks!</p>
+        </div>     -->
+    </nav>
+   
+</div>
+      
+
+<!-- <button (click)="logOut()"></button> -->
+
+<!-- <div class="menu overlay" [ngClass]="{'overlay_visible' : menuIsOpen}"> -->

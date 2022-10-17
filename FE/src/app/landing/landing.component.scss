@@ -1,0 +1,63 @@
+.landing-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: transparent;
+    display: flex;
+ 
+    justify-content: space-between;
+    align-items: center;
+}
+.landing-container {
+    width: 100%;
+    min-height: 100vh;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & h1 {
+        margin-left: 100px;
+        font-size: 40px;
+    }
+    & img {
+        max-height: 600px;
+        margin-right: 180px;
+        margin-left: 50px;
+        margin-bottom: 100px;
+        -webkit-box-shadow: 0px 10px 13px -7px #000000, inset -5px 6px 12px -1px rgba(0,0,0,0); 
+        box-shadow: 0px 10px 13px -7px #000000, inset -5px 6px 12px -1px rgba(0,0,0,0);
+      }
+}
+.landing-books {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    border-radius: 0px 100px 100px 0px;
+    width: 50%;
+    margin-bottom: 100px;
+}
+app-book {
+    & img {
+        width: 50px;
+    }
+}
+@media screen and (max-width:900px) {
+    .landing-container{
+        flex-direction: column-reverse;
+        & h1 {
+            margin-top:50px;
+            margin-left: 0;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-size: 40px;
+        }
+        & img {
+            max-height: 600px;
+            margin-right: 0;
+          }
+    }
+    .landing-books {
+
+        display: none;
+ 
+    }
+}

@@ -1,0 +1,54 @@
+.search_book_box {
+    position: fixed;
+    display: flex;
+    overflow: scroll;
+    flex-direction: column;
+    justify-content: space-around;
+    left:0;
+    top:23%;
+    width: 280px;
+    height: 50%;
+    background-color: rgba(255,255,255,1);
+    margin-top: 50px;
+    padding: 10px 20px;
+    transition: left 1s;
+    & p {
+        font-size: 18px;
+    } 
+    & span {
+        font-size: 16px;
+       
+    }
+    & input {
+        margin-top: 8px;
+        font-size: 14px;
+        margin-right: 4px;
+        max-width: 150px;
+        padding:6px 3px;
+        border-radius: 10px 0px 0px 10px;
+        border: none;
+       
+
+    }
+    ::placeholder {
+        font-size: 12px;
+    }
+}
+button {
+        font-size: 18px;
+    border: 1px solid #BA4540;
+
+}
+.most_requested_box {
+    margin-top:50px;
+    font-size: 14px;
+}
+@media screen and(max-width:900px) {
+    .search_book_box {
+        left: -300px;
+    }
+    
+}
+@media screen and(max-height:600px) {
+ 
+}

@@ -1,0 +1,11 @@
+<div class="landing-wrapper">
+    
+    <div class="landing-container">
+        <div class="landing-books">
+            <div *ngFor="let b of vetrina">
+                <app-book [book]="b"></app-book>
+            </div>
+        </div>
+        <img id="carousel" src="{{image}}" alt="">
+    </div>
+</div>

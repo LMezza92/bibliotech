@@ -1,0 +1,97 @@
+<div class="box">
+    <div class="book_box">
+        
+        <div class="book">
+            <img src="{{image}}">
+        </div>
+
+        <div class="total_info_box">
+            <div class="info_box">     
+                <span class="bg"> Titolo </span><span> {{book?.title}} </span> 
+                <span class="bg"> Autore </span><span> {{book?.author}} </span>
+                <span class="bg">Categoria</span><span>{{book?.category}}</span>
+                <span class="bg">Editore</span><span>{{book?.editor}}</span>
+                <span class="bg">N° di pagine </span><span> {{book?.numPages}}</span>
+                <span class="bg">N° copie disponibili</span><span>{{book?.numCopies}}</span><span class="bg" style="background-color: #c93a3a; color:white" *ngIf="book?.numCopies==0" >Sold Out</span> 
+
+            </div>
+
+           
+        </div>
+        <div class="borrow-book">
+            <div *ngIf="isLogged && book?.numCopies>0">
+                <div class="calendar-box">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Seleziona una data</mat-label>
+                        <input matInput [matDatepicker]="picker" (dateChange)="addEvent('change', $event)">
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                
+                    <button mat-raised-button (click)="picker.open()">Calendario</button>
+                    <button mat-raised-button (click)="borrowBook()" [ngClass]="{'visible': dateSelected}" class="hidden">Prendi in prestito</button>
+
+                </div>
+            </div>
+            <div class="options_box">
+                <div *ngIf="isLogged">
+                    <button mat-raised-button (click)="toggleReview()">Scrivi recensione</button>
+                </div>
+                <div class="admin" *ngIf="isAdmin">
+                    <button mat-raised-button (click)="createBookEntity()">Aggiungi a catalogo</button>
+                    <button mat-raised-button><a [routerLink]="['/update-book', id]">Aggiorna Catalogo</a></button>
+                    <button mat-raised-button  (click)="deleteCatalog()">ELIMINA dal catalogo</button>
+                </div>      
+            </div>
+        </div>
+    </div>
+  
+    
+    <div *ngIf="writeReview">
+        <div class="review-card">
+            <form [formGroup]="reviewForm">
+                
+                <!-- <textarea id="content" type="textarea" placeholder="Write a review..." formControlName="content" required></textarea> -->
+                <textarea matInput
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="10" formControlName="content"></textarea>
+            <span>Valutazione</span>
+                <div>
+                    <label for="1">1</label>
+                    <input type="radio" name="star" id="1" value="1" formControlName="star">
+                    <label for="2">2</label>
+                    <input type="radio" name="star" id="2" value="2" formControlName="star">
+                    <label for="3">3</label>
+                    <input type="radio" name="star" id="3" value="3" formControlName="star">
+                    <label for="4">4</label>
+                    <input type="radio" name="star" id="4" value="4" formControlName="star">
+                    <label for="5">5</label>
+                    <input type="radio" name="star" id="5" value="5" formControlName="star">
+                </div>
+                <button mat-raised-button (click)="submitReview()">Invia review</button>
+            </form>
+         </div>
+    </div>
+
+
+
+</div>
+
+<div class="review-panel" *ngIf="isPremium && reviews!=0">
+    
+    <h2>Recensioni</h2>
+    <div *ngFor="let x of reviews"> 
+        <div class="review-iteration">
+            <i *ngIf="isAdmin" (click)="deleteReview(x.idReview)" class="fa fa-times delete"></i>
+
+            <span >
+                Voto: {{x?.rating}}/5
+            </span>
+            <p>{{x?.review}}</p>
+        </div>  
+    </div>
+</div>
+<div *ngIf="message">
+    <app-notification [message] = "notification"></app-notification>
+</div>

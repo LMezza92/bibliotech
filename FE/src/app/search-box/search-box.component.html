@@ -1,0 +1,33 @@
+<div class="search_book_box">
+        <p> Ricerca</p>
+        <div>
+            <span>Titolo</span>
+            <div>
+                <input type="text" placeholder="Cerca per titolo..." [formControl]="searchInput">
+                <button mat-raised-button (click)="search()"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        
+        <div *ngIf=isPremium>
+            <span>Categoria</span>
+            <div>
+                <input type="text" placeholder="Cerca per Categoria..." [formControl]="searchCategoryInput">
+                <button mat-raised-button (click)="searchCategory()"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        <div *ngIf=isPremium>
+            <span>Autore</span>
+            <div>
+                <input type="text" placeholder="Cerca per Autore..." [formControl]="searchAuthorInput">
+                <button mat-raised-button (click)="searchAuthor()"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        <button mat-raised-button (click)="getAllBooks()">Tutti i Libri</button>
+
+        <!-- <div class="most_requested_box">
+            <p>I titoli più richiesti:</p>
+            <p>- "Ferragosto" di Enrico Franceschini</p>
+            <p>- "Controcorrente" di Matteo Renzi</p>
+            <p>- "Sotto la falce" di Jesmyn Ward</p>
+        </div> -->
+</div>

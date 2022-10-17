@@ -1,0 +1,16 @@
+<!-- <div *ngFor="let x of books">
+    <app-book></app-book>    
+</div> -->
+<div class="catalog-container">
+   
+     <app-search-box></app-search-box>
+    <div class="book_box">
+        <p> Il nostro Catalogo</p>
+        <div *ngFor="let b of books">
+            <app-book [book]=b></app-book>
+        </div>
+        <div *ngIf="n == 0">
+            <h2> <i></i> Nessun risultato...</h2>
+        </div>
+    </div>
+</div>

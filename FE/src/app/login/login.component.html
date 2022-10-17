@@ -1,0 +1,62 @@
+<!-- <div class="login">
+    <div class="login_box">
+        <div class="login_title">
+            <span>Bentornato, accedi!</span>
+        </div>
+        <form [formGroup]="logInForm">
+
+            <label for="username">Email </label>
+            <input id="username" type="text" placeholder="Inserisci Email..." formControlName="email">
+        
+            <label for="password">Password </label>
+            <input id="password" type="password" placeholder="Inserisci Password..." formControlName="password">
+  
+        </form>
+
+
+
+        <div class="forgot_password_box">
+            <span href="http://www.html.it" target="_blank">Hai dimenticato la password?</span>
+        </div>
+        <div class="button_box">
+            <div><button class="login_button" (click)="send()">
+                <span>Accedi</span>
+            </button></div>
+            <div><span>OPPURE...</span></div>
+            <div>
+            <button class="signup_button">
+                <a routerLink="/signup">Iscriviti</a> 
+            </button></div>
+        </div>
+    </div>
+    <div></div>
+</div> -->
+<div class="login-container">
+    <div class="login">
+        <div></div>
+        <div class="login_title">
+            <span>Bentornato, accedi!</span>
+        </div>
+        <div class="login_content">
+            <div class="login_box">
+                <form [formGroup]="logInForm">
+                    
+                    <input id="username" type="text" required minlength="4" placeholder="Indirizzo Email" formControlName="email">
+                    <hr style="background-color:white; width:250px">
+                    
+                    <input id="password" type="password" required minlength="4" placeholder="Password" formControlName="password">
+                    <hr style="background-color:white; width:250px">
+                
+                    <input type="submit" class="submit_button" value="Accedi" (click)="send()">
+                    <div class="or_title"><span>oppure...</span></div>
+                    <input type="submit" class="submit_button" value="Iscriviti" onclick="window.location.href='/signup' ">
+                    
+                </form>
+            </div>
+        </div>
+        <div></div>
+    </div>
+</div>
+<div *ngIf="message">
+    <app-notification [message] = "notification"></app-notification>
+</div>
